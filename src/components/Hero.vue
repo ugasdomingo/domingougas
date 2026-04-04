@@ -4,12 +4,6 @@ import { personalInfo } from '../data/portfolio.js'
 
 <template>
   <section id="inicio" class="hero">
-    <!-- Background glow blobs -->
-    <div class="hero-bg" aria-hidden="true">
-      <div class="glow glow-1"></div>
-      <div class="glow glow-2"></div>
-    </div>
-
     <div class="container hero-content">
 
       <p class="greeting">
@@ -30,7 +24,7 @@ import { personalInfo } from '../data/portfolio.js'
       </p>
 
       <p class="hero-description">
-        Basado en
+        Resido en
         <span class="location">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
             <path d="M12 21s-8-7.5-8-12a8 8 0 1 1 16 0c0 4.5-8 12-8 12z" />
@@ -181,38 +175,6 @@ import { personalInfo } from '../data/portfolio.js'
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
-}
-
-/* ── Background blobs ── */
-.hero-bg {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-}
-
-.glow {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(130px);
-}
-
-.glow-1 {
-  width: 650px;
-  height: 650px;
-  background: var(--accent);
-  opacity: 0.07;
-  top: -250px;
-  right: -180px;
-}
-
-.glow-2 {
-  width: 450px;
-  height: 450px;
-  background: var(--accent-2);
-  opacity: 0.07;
-  bottom: -120px;
-  left: -120px;
 }
 
 /* ── Mobile ── */

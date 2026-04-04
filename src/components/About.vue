@@ -9,7 +9,7 @@
         <!-- Text -->
         <div class="about-text">
           <p>
-            Soy un <strong>AI FullStack Developer</strong> basado en Madrid, España.
+            Soy un <strong>AI FullStack Developer</strong> resido en Madrid, España.
             Me especializo en el stack <strong>MEVN</strong> (MongoDB, Express, Vue.js, Node.js)
             con TypeScript y construyo aplicaciones web desde 2021.
           </p>

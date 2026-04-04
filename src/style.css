@@ -35,16 +35,6 @@ html {
 body {
   font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   background-color: var(--bg-primary);
-  /*
-    Dot-grid texture — two layers:
-    1. A subtle radial-gradient dot pattern at 28px intervals
-    2. A very faint large diagonal gradient to add depth
-  */
-  background-image:
-    radial-gradient(circle, rgba(255, 255, 255, 0.055) 1px, transparent 1px),
-    radial-gradient(circle at 14px 14px, rgba(255, 255, 255, 0.022) 1px, transparent 1px);
-  background-size: 28px 28px, 28px 28px;
-  background-position: 0 0, 14px 14px;
   color: var(--text-primary);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
