@@ -22,7 +22,7 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
              <img src="/logo.svg" alt="Domingo Ugas" class="logo-img" />
       ─────────────────────────────────────────────────── -->
       <a href="#inicio" class="logo" aria-label="Ir al inicio">
-        <div class="logo-placeholder" aria-hidden="true">DU</div>
+        <img src="/logo.png" alt="Domingo Ugas" class="logo-img" />
       </a>
 
       <!-- ── Navigation links ── -->
@@ -84,29 +84,16 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
   align-items: center;
 }
 
-/*
-  Logo placeholder — two-letter monogram with gradient background.
-  When you have a real logo, remove this block and add:
-
-    .logo-img { height: 2rem; width: auto; }
-*/
-.logo-placeholder {
-  width: 2.25rem;
+.logo-img {
   height: 2.25rem;
-  border-radius: 0.5rem;
-  background: var(--accent-gradient);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.7rem;
-  font-weight: 800;
-  color: #07090a;
-  letter-spacing: -0.02em;
+  width: 2.25rem;
+  border-radius: 50%;
+  object-fit: cover;
   transition: transform 0.2s, opacity 0.2s;
-  user-select: none;
+  display: block;
 }
 
-.logo:hover .logo-placeholder {
+.logo:hover .logo-img {
   transform: scale(1.06);
   opacity: 0.9;
 }
