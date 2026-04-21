@@ -1,6 +1,13 @@
 <script setup>
-import { ref, computed } from 'vue'
-import { projects } from '../data/portfolio.js'
+import { ref, computed, onMounted } from 'vue'
+import { projects, recentSites } from '../data/portfolio.js'
+
+// Force-check already-cached images after mount
+onMounted(() => {
+  document.querySelectorAll('.site-img').forEach(img => {
+    if (img.complete && img.naturalWidth > 0) img.classList.add('loaded')
+  })
+})
 
 const filters = [
   { key: 'all',         label: 'Todos' },
@@ -23,6 +30,45 @@ const filtered = computed(() =>
     <div class="container">
 
       <h2 class="section-title">🚀 Proyectos</h2>
+
+      <!-- ── Galería de proyectos recientes terminados ── -->
+      <div class="recent-block">
+        <h3 class="recent-heading">Proyectos recientes terminados</h3>
+        <div class="recent-grid">
+          <a
+            v-for="site in recentSites"
+            :key="site.url"
+            :href="site.url"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="site-card"
+            :aria-label="`Visitar ${site.name}`"
+          >
+            <div class="site-img-wrap">
+              <div class="site-skeleton" aria-hidden="true"></div>
+              <img
+                :src="site.screenshot"
+                :alt="`Hero de ${site.name}`"
+                class="site-img"
+                loading="lazy"
+                @load="(e) => e.target.classList.add('loaded')"
+              />
+              <div class="site-overlay">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/>
+                  <polyline points="15 3 21 3 21 9"/>
+                  <line x1="10" y1="14" x2="21" y2="3"/>
+                </svg>
+                <span>Visitar sitio</span>
+              </div>
+            </div>
+            <div class="site-info">
+              <span class="site-name">{{ site.name }}</span>
+              <span class="site-desc">{{ site.description }}</span>
+            </div>
+          </a>
+        </div>
+      </div>
 
       <!-- Filter tabs -->
       <div class="filter-tabs" role="tablist" aria-label="Filtrar proyectos">
@@ -244,6 +290,162 @@ const filtered = computed(() =>
 /* ── Mobile ── */
 @media (max-width: 640px) {
   .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ═══════════════════════════════════════════
+   Galería — Proyectos recientes terminados
+═══════════════════════════════════════════ */
+.recent-block {
+  margin-bottom: 3.5rem;
+}
+
+.recent-heading {
+  font-size: 1.0625rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.recent-heading::before {
+  content: '';
+  display: inline-block;
+  width: 3px;
+  height: 1.1em;
+  border-radius: 9999px;
+  background: var(--accent-gradient);
+  flex-shrink: 0;
+}
+
+/* 3 columnas iguales */
+.recent-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+/* ── Cada tarjeta ── */
+.site-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  text-decoration: none;
+  transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+}
+
+.site-card:hover {
+  border-color: rgba(56, 189, 248, 0.35);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(56, 189, 248, 0.1);
+}
+
+/* ── Imagen con overlay ── */
+.site-img-wrap {
+  position: relative;
+  width: 100%;
+  /* 16:9 aspect ratio */
+  padding-top: 56.25%;
+  overflow: hidden;
+  background: var(--bg-secondary);
+}
+
+/* Skeleton mientras carga */
+.site-skeleton {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    var(--bg-secondary) 25%,
+    rgba(56, 189, 248, 0.06) 50%,
+    var(--bg-secondary) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.6s infinite;
+}
+
+@keyframes shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.site-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  opacity: 0;
+  transition: opacity 0.4s ease, transform 0.4s ease, filter 0.3s;
+}
+
+.site-img.loaded {
+  opacity: 1;
+}
+
+.site-card:hover .site-img {
+  transform: scale(1.04);
+  filter: brightness(0.6);
+}
+
+/* Overlay que aparece al hover */
+.site-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  color: #fff;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  opacity: 0;
+  transition: opacity 0.25s;
+  pointer-events: none;
+}
+
+.site-card:hover .site-overlay {
+  opacity: 1;
+}
+
+/* ── Footer de la tarjeta ── */
+.site-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 0.875rem 1rem;
+}
+
+.site-name {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.3;
+}
+
+.site-desc {
+  font-size: 0.78125rem;
+  color: var(--text-muted);
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .recent-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .recent-grid {
     grid-template-columns: 1fr;
   }
 }

@@ -13,6 +13,30 @@ export const personalInfo = {
 }
 
 // ─────────────────────────────────────────────
+//  Proyectos recientes terminados (galería hero)
+// ─────────────────────────────────────────────
+export const recentSites = [
+  {
+    name: 'Silicity Campus',
+    description: 'Plataforma educativa completa',
+    url: 'https://silicitycampus.com',
+    screenshot: 'https://api.microlink.io/?url=https://silicitycampus.com&screenshot=true&meta=false&embed=screenshot.url',
+  },
+  {
+    name: 'Lucia Díaz',
+    description: 'App web full-stack personalizada',
+    url: 'https://luciadiaz.es',
+    screenshot: 'https://api.microlink.io/?url=https://luciadiaz.es&screenshot=true&meta=false&embed=screenshot.url',
+  },
+  {
+    name: 'DigiNode',
+    description: 'Plataforma de gestión empresarial',
+    url: 'https://midiginode.com',
+    screenshot: 'https://api.microlink.io/?url=https://midiginode.com&screenshot=true&meta=false&embed=screenshot.url',
+  },
+]
+
+// ─────────────────────────────────────────────
 //  Skills
 // ─────────────────────────────────────────────
 export const skills = [
