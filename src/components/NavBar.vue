@@ -14,26 +14,18 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
 <template>
   <header :class="['navbar', { 'navbar--scrolled': scrolled }]">
     <div class="container nav-inner">
-
-      <!-- ── Logo ─────────────────────────────────────────
-           Replace the .logo-placeholder div with an <img>
-           tag pointing to your logo file when it's ready.
-           Example:
-             <img src="/logo.svg" alt="Domingo Ugas" class="logo-img" />
-      ─────────────────────────────────────────────────── -->
       <a href="#inicio" class="logo" aria-label="Ir al inicio">
         <img src="/logo.png" alt="Domingo Ugas" class="logo-img" />
+        <span>Domingo Ugas</span>
       </a>
 
-      <!-- ── Navigation links ── -->
       <nav class="nav-links" aria-label="Navegación principal">
-        <a href="#sobre-mi"   class="nav-link">Sobre mí</a>
+        <a href="#sobre-mi" class="nav-link">Sobre mí</a>
         <a href="#habilidades" class="nav-link">Habilidades</a>
-        <a href="#proyectos"  class="nav-link">Proyectos</a>
-        <a href="#formacion"  class="nav-link">Formación</a>
+        <a href="#proyectos" class="nav-link">Proyectos</a>
+        <a href="#formacion" class="nav-link">Formación</a>
       </nav>
 
-      <!-- ── GitHub CTA ── -->
       <a
         href="https://github.com/ugasdomingo"
         target="_blank"
@@ -41,12 +33,8 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
         class="btn btn-secondary github-btn"
         aria-label="Perfil de GitHub de Domingo Ugas"
       >
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-          <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
-        </svg>
         GitHub
       </a>
-
     </div>
   </header>
 </template>
@@ -64,9 +52,9 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
 }
 
 .navbar--scrolled {
-  background: rgba(9, 9, 11, 0.82);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  background: rgba(7, 7, 8, 0.78);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
   border-bottom-color: var(--border);
 }
 
@@ -74,65 +62,67 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
   height: 100%;
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  gap: 1.25rem;
 }
 
-/* ── Logo ── */
 .logo {
   flex-shrink: 0;
   display: flex;
   align-items: center;
+  gap: 0.65rem;
+  font-size: 0.92rem;
+  font-weight: 800;
 }
 
 .logo-img {
-  height: 2.25rem;
-  width: 2.25rem;
+  height: 2.2rem;
+  width: 2.2rem;
   border-radius: 50%;
   object-fit: cover;
-  transition: transform 0.2s, opacity 0.2s;
+  border: 1px solid rgba(255, 255, 255, 0.16);
   display: block;
 }
 
-.logo:hover .logo-img {
-  transform: scale(1.06);
-  opacity: 0.9;
-}
-
-/* ── Nav links ── */
 .nav-links {
   display: flex;
+  justify-content: center;
   gap: 0.125rem;
   flex: 1;
 }
 
 .nav-link {
-  padding: 0.375rem 0.75rem;
-  font-size: 0.875rem;
+  padding: 0.42rem 0.75rem;
+  font-size: 0.86rem;
   color: var(--text-muted);
-  border-radius: 0.375rem;
+  border-radius: 0.45rem;
   transition: color 0.2s, background 0.2s;
 }
 
 .nav-link:hover {
   color: var(--text-primary);
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.06);
 }
 
-/* ── GitHub button ── */
 .github-btn {
   flex-shrink: 0;
-  font-size: 0.8125rem;
-  padding: 0.4rem 0.875rem;
+  min-height: 2.25rem;
+  font-size: 0.82rem;
+  padding: 0.55rem 0.85rem;
 }
 
-/* ── Mobile: hide nav links ── */
-@media (max-width: 600px) {
+@media (max-width: 760px) {
   .nav-links {
     display: none;
   }
 
   .nav-inner {
     justify-content: space-between;
+  }
+}
+
+@media (max-width: 420px) {
+  .logo span {
+    display: none;
   }
 }
 </style>

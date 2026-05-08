@@ -5,64 +5,52 @@ import { bootcampInfo, bootcampCompetencies, education } from '../data/portfolio
 <template>
   <section id="formacion" class="learning">
     <div class="container">
+      <h2 class="section-title">Formación</h2>
 
-      <h2 class="section-title">📚 Formación</h2>
-
-      <!-- ── Bootcamp card (En curso) ── -->
       <div class="bootcamp-card card">
-        <div class="bootcamp-header">
-          <div>
-            <div class="bootcamp-meta">
-              <span class="live-badge">
-                <span class="live-dot" aria-hidden="true"></span>
-                En curso
-              </span>
-              <span class="bootcamp-period">{{ bootcampInfo.startDate }} — {{ bootcampInfo.endDate }}</span>
-              <span class="bootcamp-duration">· {{ bootcampInfo.duration }}</span>
-            </div>
-            <h3 class="bootcamp-title">{{ bootcampInfo.program }}</h3>
-            <a
-              :href="bootcampInfo.url"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="bootcamp-school-link"
-            >
-              {{ bootcampInfo.school }}
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6" />
-                <polyline points="15 3 21 3 21 9" />
-                <line x1="10" y1="14" x2="21" y2="3" />
-              </svg>
-            </a>
+        <div class="bootcamp-copy">
+          <div class="bootcamp-meta">
+            <span class="live-badge">
+              <span class="live-dot" aria-hidden="true"></span>
+              En curso
+            </span>
+            <span>{{ bootcampInfo.startDate }} · {{ bootcampInfo.endDate }}</span>
+            <span>{{ bootcampInfo.duration }}</span>
           </div>
-          <div class="bootcamp-icon-wrap" aria-hidden="true">🎓</div>
+          <h3>{{ bootcampInfo.program }}</h3>
+          <a :href="bootcampInfo.url" target="_blank" rel="noopener noreferrer">
+            {{ bootcampInfo.school }}
+          </a>
+        </div>
+
+        <div class="bootcamp-signal" aria-hidden="true">
+          <span style="--w: 62%"></span>
+          <span style="--w: 82%"></span>
+          <span style="--w: 48%"></span>
+          <span style="--w: 74%"></span>
         </div>
       </div>
 
-      <!-- ── Competencies ── -->
       <div class="competencies-block">
-        <h3 class="block-heading">Competencias que adquiriré</h3>
-        <p class="block-sub">
-          Al finalizar el bootcamp dominaré las siguientes áreas de ciencia de datos e inteligencia artificial,
-          combinándolas con mis habilidades actuales en desarrollo web.
-        </p>
+        <div class="block-intro">
+          <h3>La nueva capa del perfil</h3>
+          <p>
+            Formación enfocada en análisis, modelos y despliegue para conectar productos web
+            con decisiones basadas en datos.
+          </p>
+        </div>
 
         <div class="competencies-grid">
-          <div
-            v-for="comp in bootcampCompetencies"
-            :key="comp.title"
-            class="comp-card card"
-          >
+          <div v-for="comp in bootcampCompetencies" :key="comp.title" class="comp-card card">
             <div class="comp-icon" aria-hidden="true">{{ comp.icon }}</div>
-            <h4 class="comp-title">{{ comp.title }}</h4>
-            <p class="comp-desc">{{ comp.description }}</p>
+            <h4>{{ comp.title }}</h4>
+            <p>{{ comp.description }}</p>
           </div>
         </div>
       </div>
 
-      <!-- ── Education history ── -->
       <div class="edu-block">
-        <h3 class="block-heading">Estudios y formación previa</h3>
+        <h3 class="block-heading">Trayectoria formativa</h3>
 
         <div class="edu-list">
           <div
@@ -79,70 +67,56 @@ import { bootcampInfo, bootcampCompetencies, education } from '../data/portfolio
 
             <div class="edu-body">
               <div class="edu-title-row">
-                <h4 class="edu-title">{{ edu.title }}</h4>
-                <a
-                  v-if="edu.url"
-                  :href="edu.url"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="edu-school-link"
-                >
+                <h4>{{ edu.title }}</h4>
+                <a v-if="edu.url" :href="edu.url" target="_blank" rel="noopener noreferrer">
                   {{ edu.school }}
-                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                    <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6" />
-                    <polyline points="15 3 21 3 21 9" />
-                    <line x1="10" y1="14" x2="21" y2="3" />
-                  </svg>
                 </a>
-                <span v-else class="edu-school">{{ edu.school }}</span>
+                <span v-else>{{ edu.school }}</span>
               </div>
-              <p class="edu-desc">{{ edu.description }}</p>
+              <p>{{ edu.description }}</p>
             </div>
           </div>
         </div>
       </div>
-
     </div>
   </section>
 </template>
 
 <style scoped>
-/* ── Bootcamp card ── */
 .bootcamp-card {
-  padding: 1.75rem 2rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 340px;
+  gap: 2rem;
+  padding: 1.6rem;
   margin-bottom: 3rem;
-  border-color: rgba(56, 189, 248, 0.2);
-  background: linear-gradient(135deg, var(--bg-card) 70%, rgba(56, 189, 248, 0.04));
-}
-
-.bootcamp-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1rem;
+  border-color: rgba(45, 212, 191, 0.28);
+  background:
+    linear-gradient(145deg, rgba(45, 212, 191, 0.12), transparent 44%),
+    var(--bg-card);
 }
 
 .bootcamp-meta {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 0.625rem;
-  margin-bottom: 0.625rem;
+  gap: 0.65rem;
+  margin-bottom: 0.75rem;
+  color: var(--text-muted);
+  font-size: 0.82rem;
 }
 
 .live-badge {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  font-size: 0.7rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.07em;
   color: #4ade80;
   background: rgba(34, 197, 94, 0.1);
   border: 1px solid rgba(34, 197, 94, 0.25);
-  padding: 0.175rem 0.6rem;
+  padding: 0.18rem 0.6rem;
   border-radius: 9999px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
 }
 
 .live-dot {
@@ -155,142 +129,137 @@ import { bootcampInfo, bootcampCompetencies, education } from '../data/portfolio
 
 @keyframes pulse-dot {
   0%, 100% { opacity: 1; transform: scale(1); }
-  50%       { opacity: 0.4; transform: scale(0.65); }
+  50% { opacity: 0.45; transform: scale(0.68); }
 }
 
-.bootcamp-period,
-.bootcamp-duration {
-  font-size: 0.8125rem;
-  color: var(--text-muted);
+.bootcamp-card h3 {
+  font-size: clamp(1.5rem, 3vw, 2.45rem);
+  line-height: 1.05;
+  margin-bottom: 0.7rem;
 }
 
-.bootcamp-title {
-  font-size: 1.375rem;
-  font-weight: 700;
+.bootcamp-card a {
+  color: var(--accent-3);
+  font-weight: 750;
+}
+
+.bootcamp-signal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.bootcamp-signal span {
+  display: block;
+  width: var(--w);
+  height: 0.72rem;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #2dd4bf, #a78bfa);
+  box-shadow: 0 0 22px rgba(45, 212, 191, 0.16);
+}
+
+.block-intro {
+  display: grid;
+  grid-template-columns: 0.58fr 1fr;
+  gap: 2rem;
+  margin-bottom: 1.4rem;
+}
+
+.block-intro h3,
+.block-heading {
+  font-size: 1.2rem;
+  font-weight: 850;
   color: var(--text-primary);
-  margin-bottom: 0.4rem;
 }
 
-.bootcamp-school-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.3rem;
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: var(--accent);
-  transition: opacity 0.2s;
+.block-intro p {
+  color: var(--text-muted);
+  line-height: 1.75;
 }
 
-.bootcamp-school-link:hover {
-  opacity: 0.75;
-}
-
-.bootcamp-icon-wrap {
-  font-size: 2.5rem;
-  flex-shrink: 0;
-  opacity: 0.7;
-}
-
-/* ── Section blocks ── */
 .competencies-block,
 .edu-block {
   margin-bottom: 3.5rem;
 }
 
-.block-heading {
-  font-size: 1.0625rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  margin-bottom: 0.5rem;
-}
-
-.block-sub {
-  font-size: 0.875rem;
-  color: var(--text-muted);
-  line-height: 1.7;
-  max-width: 620px;
-  margin-bottom: 1.75rem;
-}
-
-/* ── Competencies grid ── */
 .competencies-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 0.875rem;
+  gap: 0.9rem;
 }
 
 .comp-card {
-  padding: 1.25rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  transition: border-color 0.2s, transform 0.2s;
-}
-
-.comp-card:hover {
-  border-color: rgba(56, 189, 248, 0.25);
-  transform: translateY(-2px);
+  min-height: 14rem;
+  padding: 1.2rem;
 }
 
 .comp-icon {
-  font-size: 1.5rem;
-  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 2rem;
+  min-width: 2.7rem;
+  padding: 0 0.55rem;
+  border-radius: 0.55rem;
+  background: rgba(45, 212, 191, 0.12);
+  color: var(--accent-3);
+  font-size: 0.68rem;
+  font-weight: 900;
+  margin-bottom: 1rem;
 }
 
-.comp-title {
-  font-size: 0.9375rem;
-  font-weight: 600;
-  color: var(--text-primary);
+.comp-card h4 {
+  font-size: 0.98rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
 }
 
-.comp-desc {
-  font-size: 0.8125rem;
+.comp-card p {
   color: var(--text-muted);
+  font-size: 0.82rem;
   line-height: 1.65;
-  flex: 1;
 }
 
-/* ── Education list ── */
 .edu-list {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
+  margin-top: 1rem;
 }
 
 .edu-item {
   display: grid;
-  grid-template-columns: 160px 1fr;
+  grid-template-columns: 180px 1fr;
   gap: 1.5rem;
   padding: 1.25rem 1.5rem;
-  align-items: start;
 }
 
 .edu-item--current {
-  border-color: rgba(56, 189, 248, 0.2);
+  border-color: rgba(45, 212, 191, 0.25);
 }
 
 .edu-left {
   display: flex;
   flex-direction: column;
-  gap: 0.35rem;
-  padding-top: 0.125rem;
+  gap: 0.4rem;
 }
 
 .edu-type-badge {
   display: inline-block;
+  width: fit-content;
   font-size: 0.68rem;
-  font-weight: 700;
+  font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  padding: 0.15rem 0.55rem;
-  border-radius: 9999px;
-  width: fit-content;
+  padding: 0.18rem 0.55rem;
+  border-radius: 999px;
 }
 
 .badge--current {
   background: var(--accent-dim);
-  color: var(--accent);
-  border: 1px solid rgba(56, 189, 248, 0.25);
+  color: var(--accent-3);
+  border: 1px solid rgba(45, 212, 191, 0.25);
 }
 
 .badge--done {
@@ -299,16 +268,14 @@ import { bootcampInfo, bootcampCompetencies, education } from '../data/portfolio
   border: 1px solid var(--border);
 }
 
-.edu-period {
-  font-size: 0.78125rem;
+.edu-period,
+.edu-body p,
+.edu-title-row span {
   color: var(--text-muted);
-  line-height: 1.4;
 }
 
-.edu-body {
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
+.edu-period {
+  font-size: 0.8rem;
 }
 
 .edu-title-row {
@@ -316,65 +283,42 @@ import { bootcampInfo, bootcampCompetencies, education } from '../data/portfolio
   align-items: baseline;
   gap: 0.75rem;
   flex-wrap: wrap;
+  margin-bottom: 0.35rem;
 }
 
-.edu-title {
+.edu-title-row h4 {
   font-size: 1rem;
-  font-weight: 600;
-  color: var(--text-primary);
-  line-height: 1.3;
+  font-weight: 800;
 }
 
-.edu-school-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.25rem;
-  font-size: 0.8125rem;
-  color: var(--accent);
-  flex-shrink: 0;
-  transition: opacity 0.2s;
+.edu-title-row a {
+  color: var(--accent-3);
+  font-size: 0.84rem;
+  font-weight: 750;
 }
 
-.edu-school-link:hover {
-  opacity: 0.75;
-}
-
-.edu-school {
-  font-size: 0.8125rem;
-  color: var(--text-muted);
-  flex-shrink: 0;
-}
-
-.edu-desc {
-  font-size: 0.875rem;
-  color: var(--text-muted);
+.edu-body p {
+  font-size: 0.88rem;
   line-height: 1.65;
 }
 
-/* ── Responsive ── */
 @media (max-width: 1024px) {
   .competencies-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (max-width: 640px) {
-  .competencies-grid {
-    grid-template-columns: 1fr;
-  }
-
+@media (max-width: 760px) {
+  .bootcamp-card,
+  .block-intro,
   .edu-item {
     grid-template-columns: 1fr;
-    gap: 0.75rem;
   }
+}
 
-  .edu-left {
-    flex-direction: row;
-    align-items: center;
-  }
-
-  .bootcamp-icon-wrap {
-    display: none;
+@media (max-width: 560px) {
+  .competencies-grid {
+    grid-template-columns: 1fr;
   }
 }
 </style>

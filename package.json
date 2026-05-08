@@ -1,7 +1,7 @@
 {
   "name": "domingougas",
   "version": "1.0.0",
-  "description": "Portfolio personal de Domingo Ugas — Desarrollador FullStack",
+  "description": "Portfolio personal de Domingo Ugas - Full Stack Developer",
   "private": true,
   "scripts": {
     "dev": "vite",

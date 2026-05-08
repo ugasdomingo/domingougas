@@ -5,8 +5,7 @@ import { skills } from '../data/portfolio.js'
 <template>
   <section id="habilidades" class="skills">
     <div class="container">
-
-      <h2 class="section-title">🛠️ Habilidades</h2>
+      <h2 class="section-title">Habilidades</h2>
 
       <div class="skills-grid">
         <div
@@ -16,8 +15,10 @@ import { skills } from '../data/portfolio.js'
         >
           <div class="group-header">
             <span class="group-icon" aria-hidden="true">{{ group.icon }}</span>
-            <h3 class="group-label">{{ group.label }}</h3>
-            <span v-if="group.accent" class="learning-badge">En curso</span>
+            <div>
+              <h3 class="group-label">{{ group.label }}</h3>
+              <p v-if="group.accent" class="group-note">En expansión durante el bootcamp</p>
+            </div>
           </div>
 
           <div class="tags-row">
@@ -31,7 +32,6 @@ import { skills } from '../data/portfolio.js'
           </div>
         </div>
       </div>
-
     </div>
   </section>
 </template>
@@ -39,64 +39,87 @@ import { skills } from '../data/portfolio.js'
 <style scoped>
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
 }
 
-/* ── Skill group card ── */
 .skill-group {
-  padding: 1.5rem;
+  position: relative;
+  min-height: 18rem;
+  padding: 1.35rem;
+  overflow: hidden;
+}
+
+.skill-group::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.055), transparent 38%);
+  pointer-events: none;
 }
 
 .skill-group--learning {
-  border-color: rgba(56, 189, 248, 0.2);
-  background: linear-gradient(135deg, var(--bg-card) 80%, rgba(56, 189, 248, 0.04));
+  border-color: rgba(45, 212, 191, 0.28);
+  background:
+    linear-gradient(160deg, rgba(45, 212, 191, 0.12), transparent 45%),
+    var(--bg-card);
 }
 
 .group-header {
+  position: relative;
   display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
+  align-items: flex-start;
+  gap: 0.8rem;
+  margin-bottom: 1.25rem;
 }
 
 .group-icon {
-  font-size: 1rem;
-  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 0.65rem;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.045);
+  color: var(--accent-3);
+  font-size: 0.72rem;
+  font-weight: 900;
 }
 
 .group-label {
-  font-size: 0.8125rem;
-  font-weight: 600;
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1.1;
+}
+
+.group-note {
+  margin-top: 0.28rem;
+  font-size: 0.76rem;
   color: var(--text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.07em;
-  flex: 1;
 }
 
-.learning-badge {
-  font-size: 0.65rem;
-  font-weight: 700;
-  padding: 0.15rem 0.5rem;
-  border-radius: 9999px;
-  background: var(--accent-dim);
-  color: var(--accent);
-  border: 1px solid rgba(56, 189, 248, 0.25);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-}
-
-/* ── Tags ── */
 .tags-row {
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   gap: 0.45rem;
 }
 
-/* ── Mobile ── */
+@media (max-width: 1020px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media (max-width: 640px) {
   .skills-grid {
     grid-template-columns: 1fr;
+  }
+
+  .skill-group {
+    min-height: auto;
   }
 }
 </style>

@@ -1,10 +1,7 @@
-// ─────────────────────────────────────────────
-//  Personal info
-// ─────────────────────────────────────────────
 export const personalInfo = {
   name: 'Domingo Ugas',
-  role: 'AI FullStack Developer',
-  stack: 'MEVN Stack · Python · AI & Data Science',
+  role: 'Full Stack Developer + Data Science',
+  stack: 'MEVN Stack · Python · Data Science · Machine Learning',
   location: 'Madrid, España',
   github: 'https://github.com/ugasdomingo',
   twitter: 'https://twitter.com/ugasdomingo',
@@ -12,9 +9,22 @@ export const personalInfo = {
   avatar: 'https://avatars.githubusercontent.com/u/89316506?v=4',
 }
 
-// ─────────────────────────────────────────────
-//  Proyectos recientes terminados (galería hero)
-// ─────────────────────────────────────────────
+export const impactMetrics = [
+  { value: '4+', label: 'años creando software web' },
+  { value: '10+', label: 'años entendiendo negocio y marketing' },
+  { value: 'MEVN', label: 'stack principal en producción' },
+  { value: 'ML', label: 'nueva capa: modelos y datos' },
+]
+
+export const neuralNodes = [
+  { label: 'Vue', x: 14, y: 24 },
+  { label: 'Node', x: 41, y: 17 },
+  { label: 'Mongo', x: 74, y: 29 },
+  { label: 'Python', x: 24, y: 62 },
+  { label: 'Pandas', x: 58, y: 67 },
+  { label: 'ML', x: 84, y: 57 },
+]
+
 export const recentSites = [
   {
     name: 'Silicity Campus',
@@ -23,8 +33,8 @@ export const recentSites = [
     screenshot: 'https://api.microlink.io/?url=https://silicitycampus.com&screenshot=true&meta=false&embed=screenshot.url',
   },
   {
-    name: 'Lucia Díaz',
-    description: 'App web full-stack personalizada',
+    name: 'Lucía Díaz',
+    description: 'App web full stack personalizada',
     url: 'https://luciadiaz.es',
     screenshot: 'https://api.microlink.io/?url=https://luciadiaz.es&screenshot=true&meta=false&embed=screenshot.url',
   },
@@ -36,46 +46,39 @@ export const recentSites = [
   },
 ]
 
-// ─────────────────────────────────────────────
-//  Skills
-// ─────────────────────────────────────────────
 export const skills = [
   {
     label: 'Frontend',
-    icon: '🎨',
+    icon: 'UI',
     accent: false,
     items: ['Vue.js 3', 'JavaScript', 'TypeScript', 'HTML5', 'CSS3', 'SCSS/SASS', 'Vite'],
   },
   {
     label: 'Backend',
-    icon: '⚙️',
+    icon: 'API',
     accent: false,
     items: ['Node.js', 'Express.js', 'MongoDB', 'REST APIs', 'TypeScript'],
   },
   {
-    label: 'Herramientas',
-    icon: '🔧',
+    label: 'Producto',
+    icon: 'MKT',
     accent: false,
-    items: ['Git', 'GitHub', 'Vercel', 'VS Code', 'Postman'],
+    items: ['Marketing', 'UX', 'Funnel', 'Métricas', 'Negocio', 'Comunicación'],
   },
   {
-    label: 'Aprendiendo',
-    icon: '🧠',
+    label: 'Data + ML',
+    icon: 'ML',
     accent: true,
     items: ['Python', 'Pandas', 'NumPy', 'Scikit-learn', 'Machine Learning', 'Deep Learning', 'NLP', 'Jupyter'],
   },
 ]
 
-// ─────────────────────────────────────────────
-//  Projects
-//  categories: fullstack | client | datascience
-// ─────────────────────────────────────────────
 export const projects = [
   {
     id: 1,
     name: 'DigiEvolucion',
     description:
-      'Plataforma de gestión empresarial full-stack construida con el stack MEVN. Arquitectura moderna con Vue.js 3, TypeScript, Vite y SASS en el frontend; Node.js y MongoDB en el backend.',
+      'Plataforma de gestión empresarial full stack construida con stack MEVN. Arquitectura moderna con Vue.js 3, TypeScript, Vite y SASS en el frontend; Node.js y MongoDB en el backend.',
     tags: ['Vue.js', 'TypeScript', 'Node.js', 'MongoDB', 'Express', 'SASS', 'Vite'],
     url: 'https://digievolucion-api.vercel.app',
     github: 'https://github.com/ugasdomingo/digievolucion',
@@ -86,7 +89,7 @@ export const projects = [
     id: 2,
     name: 'Silicit',
     description:
-      'Aplicación web full-stack con arquitectura desacoplada: frontend en Vue.js + TypeScript y backend API REST. Desplegada en Vercel.',
+      'Aplicación web full stack con arquitectura desacoplada: frontend en Vue.js + TypeScript y backend API REST. Desplegada en Vercel.',
     tags: ['Vue.js', 'TypeScript', 'CSS', 'API REST'],
     url: 'https://silicitapi.vercel.app',
     github: 'https://github.com/ugasdomingo/silicit',
@@ -95,9 +98,9 @@ export const projects = [
   },
   {
     id: 3,
-    name: 'Lucia Diaz App',
+    name: 'Lucía Díaz App',
     description:
-      'Aplicación web completa para luciadiaz.es. Frontend en Vue.js 3 con SCSS y backend en Node.js, Express y MongoDB con TypeScript. El proyecto más activo del portfolio (76+ commits).',
+      'Aplicación web completa para luciadiaz.es. Frontend en Vue.js 3 con SCSS y backend en Node.js, Express y MongoDB con TypeScript. El proyecto más activo del portfolio.',
     tags: ['Vue.js', 'Node.js', 'Express', 'MongoDB', 'TypeScript', 'SCSS'],
     url: 'https://luciadiaz-client.vercel.app',
     github: 'https://github.com/ugasdomingo/luciadiaz-client',
@@ -108,7 +111,7 @@ export const projects = [
     id: 4,
     name: 'DigiNode',
     description:
-      'Nueva generación de DigiEmpresas con arquitectura totalmente desacoplada: API REST independiente en Node.js y frontend Vue.js desplegados por separado.',
+      'Nueva generación de DigiEmpresas con arquitectura desacoplada: API REST independiente en Node.js y frontend Vue.js desplegados por separado.',
     tags: ['Vue.js', 'Node.js', 'JavaScript', 'REST API'],
     url: 'https://diginode-client.vercel.app',
     github: 'https://github.com/ugasdomingo/diginode-client',
@@ -152,7 +155,7 @@ export const projects = [
     id: 8,
     name: "Maria D'Alessio",
     description:
-      'Sitio web personal. El proyecto más reciente del portfolio, desarrollado con Vue.js y desplegado en Vercel.',
+      'Sitio web personal desarrollado con Vue.js y desplegado en Vercel.',
     tags: ['Vue.js', 'JavaScript'],
     url: 'https://maria-dalessio.vercel.app',
     github: 'https://github.com/ugasdomingo/maria_dalessio',
@@ -183,9 +186,6 @@ export const projects = [
   },
 ]
 
-// ─────────────────────────────────────────────
-//  Formación — Bootcamp header
-// ─────────────────────────────────────────────
 export const bootcampInfo = {
   school: '4Geeks Academy',
   program: 'Data Science & Machine Learning',
@@ -195,68 +195,62 @@ export const bootcampInfo = {
   url: 'https://4geeksacademy.com/en/career-programs/data-science-ml',
 }
 
-// ─────────────────────────────────────────────
-//  Competencias que genera el bootcamp
-// ─────────────────────────────────────────────
 export const bootcampCompetencies = [
   {
-    icon: '📊',
+    icon: 'EDA',
     title: 'Análisis de Datos',
     description:
-      'Manipulación, limpieza y análisis exploratorio de grandes datasets con Pandas y NumPy. Identificación de patrones y outliers.',
+      'Manipulación, limpieza y análisis exploratorio de datasets con Pandas y NumPy. Identificación de patrones y outliers.',
   },
   {
-    icon: '📐',
+    icon: 'STAT',
     title: 'Estadística & Matemáticas',
     description:
-      'Probabilidad, estadística descriptiva, álgebra lineal y cálculo aplicados directamente al diseño de modelos predictivos.',
+      'Probabilidad, estadística descriptiva, álgebra lineal y cálculo aplicados al diseño de modelos predictivos.',
   },
   {
-    icon: '🤖',
+    icon: 'ML',
     title: 'Machine Learning',
     description:
       'Algoritmos supervisados y no supervisados: regresión, clasificación, clustering, Random Forest, XGBoost y KNN.',
   },
   {
-    icon: '🧠',
+    icon: 'DL',
     title: 'Deep Learning',
     description:
-      'Redes neuronales artificiales, RNNs para datos secuenciales, Transfer Learning y técnicas de regularización avanzadas.',
+      'Redes neuronales artificiales, RNNs para datos secuenciales, Transfer Learning y regularización avanzada.',
   },
   {
-    icon: '💬',
+    icon: 'NLP',
     title: 'NLP',
     description:
       'Procesamiento de lenguaje natural: clasificadores de texto, análisis de sentimiento y modelos de lenguaje básicos.',
   },
   {
-    icon: '🔌',
+    icon: 'PIPE',
     title: 'Data Engineering',
     description:
       'Web scraping, integración de APIs públicas y construcción de pipelines de datos robustos para alimentar modelos.',
   },
   {
-    icon: '⭐',
+    icon: 'REC',
     title: 'Sistemas de Recomendación',
     description:
       'Filtrado colaborativo, content-based filtering e implementación de sistemas personalizados de recomendación.',
   },
   {
-    icon: '🚀',
+    icon: 'DEP',
     title: 'Deploy de Modelos',
     description:
       'Despliegue de modelos ML en producción usando Flask y Streamlit, con integración en plataformas cloud.',
   },
 ]
 
-// ─────────────────────────────────────────────
-//  Historial educativo
-// ─────────────────────────────────────────────
 export const education = [
   {
     title: 'Data Science & Machine Learning',
     school: '4Geeks Academy',
-    period: 'Marzo 2026 — Julio 2026',
+    period: 'Marzo 2026 · Julio 2026',
     type: 'Bootcamp',
     status: 'current',
     url: 'https://4geeksacademy.com/en/career-programs/data-science-ml',
@@ -265,7 +259,7 @@ export const education = [
   {
     title: 'FullStack Development',
     school: 'Platzi',
-    period: '2021 — 2024',
+    period: '2021 · 2024',
     type: 'Online',
     status: 'completed',
     url: 'https://platzi.com',

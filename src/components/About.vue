@@ -1,80 +1,57 @@
+<script setup>
+import { impactMetrics } from '../data/portfolio.js'
+</script>
+
 <template>
   <section id="sobre-mi" class="about">
     <div class="container">
-
-      <h2 class="section-title">🧑‍💻 Sobre mí</h2>
+      <h2 class="section-title">Sobre mí</h2>
 
       <div class="about-grid">
-
-        <!-- Text -->
         <div class="about-text">
-          <p>
-            Soy un <strong>AI FullStack Developer</strong> resido en Madrid, España.
-            Me especializo en el stack <strong>MEVN</strong> (MongoDB, Express, Vue.js, Node.js)
-            con TypeScript y construyo aplicaciones web desde 2021.
+          <p class="lead">
+            Soy un desarrollador full stack en Madrid que une producto, código y datos.
+            Mi base es MEVN, mi ventaja es haber trabajado más de una década en marketing,
+            y mi siguiente salto es aplicar ciencia de datos y machine learning a productos reales.
           </p>
+
           <p>
-            Antes de la programación acumulé <strong>más de 10 años de experiencia en marketing</strong>,
-            incluyendo la dirección de mi propia <strong>agencia de marketing</strong> antes de la pandemia.
-            Esa visión de negocio me diferencia: no solo codifico, entiendo el producto, al usuario y
-            el impacto real de cada decisión técnica.
+            Construyo aplicaciones con Vue, Node, Express y MongoDB, cuidando tanto la arquitectura
+            como la experiencia de usuario. No me quedo en “que funcione”: pienso en métricas,
+            conversión, comunicación y en cómo una decisión técnica afecta al negocio.
           </p>
+
           <p>
-            Actualmente amplío mis capacidades con un bootcamp intensivo de
-            <strong>Data Science y Machine Learning</strong> en 4Geeks Academy,
-            con el objetivo de combinar mis habilidades web con inteligencia artificial
-            para construir productos más inteligentes y data-driven.
+            Actualmente estoy cursando Data Science & Machine Learning en 4Geeks Academy para
+            llevar esa mirada full stack hacia pipelines, análisis, modelos predictivos y productos
+            web más inteligentes.
           </p>
 
           <div class="about-badges">
-            <span class="tag tag-accent">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
-                <path d="M12 21s-8-7.5-8-12a8 8 0 1 1 16 0c0 4.5-8 12-8 12z" />
-                <circle cx="12" cy="9" r="2.5" />
-              </svg>
-              Madrid, España
-            </span>
-            <span class="tag tag-green">
-              Disponible para trabajar
-            </span>
+            <span class="tag tag-accent">Madrid, España</span>
+            <span class="tag tag-green">Disponible para trabajar</span>
+            <span class="tag tag-default">Full stack + data mindset</span>
           </div>
         </div>
 
-        <!-- Stats -->
         <div class="about-stats">
-          <div class="stat-card card">
-            <div class="stat-number">4<span class="stat-plus">+</span></div>
-            <div class="stat-label">Años en desarrollo web</div>
+          <div v-for="metric in impactMetrics" :key="metric.label" class="stat-card card">
+            <div class="stat-number">{{ metric.value }}</div>
+            <div class="stat-label">{{ metric.label }}</div>
           </div>
-          <div class="stat-card card">
-            <div class="stat-number">10<span class="stat-plus">+</span></div>
-            <div class="stat-label">Años en marketing</div>
-          </div>
-          <div class="stat-card card">
-            <div class="stat-number gradient-text">MEVN</div>
-            <div class="stat-label">Stack principal</div>
-          </div>
-          <div class="stat-card card">
-            <div class="stat-number">DS</div>
-            <div class="stat-label">Bootcamp en curso</div>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Marketing background callout -->
-      <div class="marketing-callout card">
-        <div class="callout-icon" aria-hidden="true">📣</div>
-        <div class="callout-body">
-          <h3 class="callout-title">Perfil único: Marketing + Tecnología</h3>
-          <p class="callout-text">
-            Lideré una agencia de marketing antes de la pandemia y fui marketer profesional durante más de una década.
-            Hoy ese conocimiento me permite desarrollar productos digitales con visión estratégica:
-            entiendo métricas, funnel de conversión, experiencia de usuario y cómo la tecnología sirve al negocio.
-          </p>
         </div>
       </div>
 
+      <div class="positioning-card">
+        <div>
+          <span class="positioning-kicker">Perfil diferencial</span>
+          <h3>Marketing + ingeniería + machine learning en construcción</h3>
+        </div>
+        <p>
+          Es una mezcla poco común: entiendo el producto antes de escribir código, desarrollo el
+          sistema completo y ahora estoy añadiendo la capa analítica para medir, aprender y predecir.
+        </p>
+      </div>
     </div>
   </section>
 </template>
@@ -82,13 +59,11 @@
 <style scoped>
 .about-grid {
   display: grid;
-  grid-template-columns: 1fr 260px;
+  grid-template-columns: minmax(0, 1fr) 390px;
   gap: 3rem;
   align-items: start;
-  margin-bottom: 2rem;
 }
 
-/* ── Text block ── */
 .about-text {
   display: flex;
   flex-direction: column;
@@ -101,9 +76,11 @@
   font-size: 1rem;
 }
 
-.about-text strong {
+.about-text .lead {
+  font-size: clamp(1.25rem, 2vw, 1.65rem);
+  line-height: 1.45;
   color: var(--text-primary);
-  font-weight: 600;
+  font-weight: 650;
 }
 
 .about-badges {
@@ -113,99 +90,88 @@
   margin-top: 0.5rem;
 }
 
-.about-badges .tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-}
-
-/* ── Stats grid ── */
 .about-stats {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 0.75rem;
+  gap: 0.85rem;
 }
 
 .stat-card {
+  min-height: 9.2rem;
+  padding: 1.2rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 1.25rem 0.75rem;
-  gap: 0.35rem;
+  justify-content: space-between;
+  overflow: hidden;
+  position: relative;
+}
+
+.stat-card::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 0;
+  height: 3px;
+  background: var(--accent-gradient);
+  opacity: 0.85;
 }
 
 .stat-number {
-  font-size: 1.875rem;
-  font-weight: 800;
+  font-size: clamp(1.8rem, 4vw, 2.7rem);
+  font-weight: 900;
   color: var(--text-primary);
   line-height: 1;
-  letter-spacing: -0.02em;
-}
-
-.stat-plus {
-  font-size: 1.25rem;
-  color: var(--accent);
 }
 
 .stat-label {
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   color: var(--text-muted);
-  font-weight: 500;
-  line-height: 1.3;
-  text-align: center;
-}
-
-/* ── Marketing callout ── */
-.marketing-callout {
-  display: flex;
-  gap: 1.25rem;
-  padding: 1.5rem;
-  align-items: flex-start;
-  border-color: rgba(129, 140, 248, 0.2);
-  background: linear-gradient(135deg, var(--bg-card) 75%, rgba(129, 140, 248, 0.05));
-}
-
-.callout-icon {
-  font-size: 1.75rem;
-  flex-shrink: 0;
-  line-height: 1;
-  margin-top: 0.1rem;
-}
-
-.callout-body {
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-}
-
-.callout-title {
-  font-size: 1rem;
   font-weight: 600;
-  color: var(--text-primary);
+  line-height: 1.35;
 }
 
-.callout-text {
-  font-size: 0.875rem;
-  color: var(--text-muted);
+.positioning-card {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: 0.72fr 1fr;
+  gap: 2rem;
+  padding: 1.5rem;
+  border: 1px solid rgba(45, 212, 191, 0.2);
+  border-radius: 0.85rem;
+  background:
+    linear-gradient(135deg, rgba(45, 212, 191, 0.1), transparent 45%),
+    rgba(255, 255, 255, 0.035);
+}
+
+.positioning-kicker {
+  display: block;
+  color: var(--accent-3);
+  font-size: 0.74rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.45rem;
+}
+
+.positioning-card h3 {
+  font-size: 1.25rem;
+  line-height: 1.25;
+}
+
+.positioning-card p {
+  color: var(--text-secondary);
   line-height: 1.75;
 }
 
-/* ── Mobile ── */
-@media (max-width: 768px) {
-  .about-grid {
+@media (max-width: 900px) {
+  .about-grid,
+  .positioning-card {
     grid-template-columns: 1fr;
-    gap: 2rem;
   }
+}
 
+@media (max-width: 520px) {
   .about-stats {
-    width: 100%;
-  }
-
-  .marketing-callout {
-    flex-direction: column;
-    gap: 0.875rem;
+    grid-template-columns: 1fr;
   }
 }
 </style>
