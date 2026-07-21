@@ -123,6 +123,12 @@ section {
   border: 1px solid rgba(234, 179, 8, 0.22);
 }
 
+.tag-violet {
+  background: rgba(167, 139, 250, 0.12);
+  color: #c4b5fd;
+  border: 1px solid rgba(167, 139, 250, 0.28);
+}
+
 .btn {
   display: inline-flex;
   align-items: center;

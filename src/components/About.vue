@@ -12,7 +12,8 @@ import { impactMetrics } from '../data/portfolio.js'
           <p class="lead">
             Soy un desarrollador full stack en Madrid que une producto, código y datos.
             Mi base es MEVN, mi ventaja es haber trabajado más de una década en marketing,
-            y mi siguiente salto es aplicar ciencia de datos y machine learning a productos reales.
+            y mi nueva capa es la ciencia de datos, los agentes IA y la automatización
+            aplicadas a productos reales.
           </p>
 
           <p>
@@ -22,9 +23,9 @@ import { impactMetrics } from '../data/portfolio.js'
           </p>
 
           <p>
-            Actualmente estoy cursando Data Science & Machine Learning en 4Geeks Academy para
-            llevar esa mirada full stack hacia pipelines, análisis, modelos predictivos y productos
-            web más inteligentes.
+            Me gradué del bootcamp de Data Science & Machine Learning de 4Geeks Academy y llevo
+            esa mirada full stack hacia pipelines, modelos predictivos, agentes IA con RAG y MCP,
+            y automatización de procesos con n8n y Make.
           </p>
 
           <div class="about-badges">
@@ -45,11 +46,11 @@ import { impactMetrics } from '../data/portfolio.js'
       <div class="positioning-card">
         <div>
           <span class="positioning-kicker">Perfil diferencial</span>
-          <h3>Marketing + ingeniería + machine learning en construcción</h3>
+          <h3>Marketing + ingeniería + IA aplicada</h3>
         </div>
         <p>
           Es una mezcla poco común: entiendo el producto antes de escribir código, desarrollo el
-          sistema completo y ahora estoy añadiendo la capa analítica para medir, aprender y predecir.
+          sistema completo y sumo la capa de datos e IA para medir, predecir y automatizar.
         </p>
       </div>
     </div>

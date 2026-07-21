@@ -12,7 +12,7 @@ import { bootcampInfo, bootcampCompetencies, education } from '../data/portfolio
           <div class="bootcamp-meta">
             <span class="live-badge">
               <span class="live-dot" aria-hidden="true"></span>
-              En curso
+              Graduado
             </span>
             <span>{{ bootcampInfo.startDate }} · {{ bootcampInfo.endDate }}</span>
             <span>{{ bootcampInfo.duration }}</span>
@@ -35,7 +35,7 @@ import { bootcampInfo, bootcampCompetencies, education } from '../data/portfolio
         <div class="block-intro">
           <h3>La nueva capa del perfil</h3>
           <p>
-            Formación enfocada en análisis, modelos y despliegue para conectar productos web
+            Competencias adquiridas en análisis, modelos y despliegue para conectar productos web
             con decisiones basadas en datos.
           </p>
         </div>

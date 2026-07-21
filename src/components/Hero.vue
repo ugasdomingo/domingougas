@@ -8,7 +8,7 @@ import { personalInfo, impactMetrics, neuralNodes } from '../data/portfolio.js'
       <div class="hero-copy">
         <p class="eyebrow">
           <span class="status-dot" aria-hidden="true"></span>
-          Disponible para proyectos full stack con capa de datos
+          Disponible para proyectos full stack con datos, IA y automatización
         </p>
 
         <h1 class="hero-name">
@@ -17,14 +17,14 @@ import { personalInfo, impactMetrics, neuralNodes } from '../data/portfolio.js'
         </h1>
 
         <p class="hero-role">
-          Full stack developer que está evolucionando hacia
+          Full stack developer graduado en
           <strong>Data Science & Machine Learning</strong>.
         </p>
 
         <p class="hero-description">
-          Construyo productos web con Vue, Node y MongoDB, y ahora sumo Python,
-          análisis de datos y modelos predictivos para convertir software en
-          decisiones más inteligentes.
+          Construyo productos web con Vue, Node y MongoDB, y sumo Python, modelos
+          predictivos, agentes IA y automatización con n8n y Make para convertir
+          software en decisiones más inteligentes.
         </p>
 
         <div class="hero-cta">
@@ -65,10 +65,10 @@ import { personalInfo, impactMetrics, neuralNodes } from '../data/portfolio.js'
 
         <div class="lab-grid">
           <div class="terminal-panel">
-            <p class="terminal-line muted">$ build_profile --stack MEVN --next ML</p>
+            <p class="terminal-line muted">$ build_profile --stack MEVN --plus ML+IA</p>
             <p class="terminal-line"><span>status</span> production ready</p>
             <p class="terminal-line"><span>location</span> {{ personalInfo.location }}</p>
-            <p class="terminal-line"><span>focus</span> web apps + data products</p>
+            <p class="terminal-line"><span>focus</span> web apps + agentes IA + automatización</p>
           </div>
 
           <div class="model-panel">

@@ -11,13 +11,13 @@ import { skills } from '../data/portfolio.js'
         <div
           v-for="group in skills"
           :key="group.label"
-          :class="['skill-group card', { 'skill-group--learning': group.accent }]"
+          :class="['skill-group card', { 'skill-group--learning': group.accent, 'skill-group--ai': group.ai, 'skill-group--wide': group.wide }]"
         >
           <div class="group-header">
             <span class="group-icon" aria-hidden="true">{{ group.icon }}</span>
             <div>
               <h3 class="group-label">{{ group.label }}</h3>
-              <p v-if="group.accent" class="group-note">En expansión durante el bootcamp</p>
+              <p v-if="group.note" class="group-note">{{ group.note }}</p>
             </div>
           </div>
 
@@ -25,7 +25,7 @@ import { skills } from '../data/portfolio.js'
             <span
               v-for="skill in group.items"
               :key="skill"
-              :class="['tag', group.accent ? 'tag-accent' : 'tag-default']"
+              :class="['tag', group.ai ? 'tag-violet' : group.accent ? 'tag-accent' : 'tag-default']"
             >
               {{ skill }}
             </span>
@@ -63,6 +63,18 @@ import { skills } from '../data/portfolio.js'
   background:
     linear-gradient(160deg, rgba(45, 212, 191, 0.12), transparent 45%),
     var(--bg-card);
+}
+
+.skill-group--ai {
+  border-color: rgba(167, 139, 250, 0.3);
+  background:
+    linear-gradient(160deg, rgba(167, 139, 250, 0.12), transparent 45%),
+    var(--bg-card);
+}
+
+.skill-group--wide {
+  grid-column: 1 / -1;
+  min-height: auto;
 }
 
 .group-header {

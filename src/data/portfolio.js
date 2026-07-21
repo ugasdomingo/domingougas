@@ -1,7 +1,7 @@
 export const personalInfo = {
   name: 'Domingo Ugas',
-  role: 'Full Stack Developer + Data Science',
-  stack: 'MEVN Stack · Python · Data Science · Machine Learning',
+  role: 'Full Stack Developer + Data Science & IA',
+  stack: 'MEVN Stack · Python · Machine Learning · Agentes IA · Automatización',
   location: 'Madrid, España',
   github: 'https://github.com/ugasdomingo',
   twitter: 'https://twitter.com/ugasdomingo',
@@ -13,7 +13,7 @@ export const impactMetrics = [
   { value: '4+', label: 'años creando software web' },
   { value: '10+', label: 'años entendiendo negocio y marketing' },
   { value: 'MEVN', label: 'stack principal en producción' },
-  { value: 'ML', label: 'nueva capa: modelos y datos' },
+  { value: 'ML+IA', label: 'modelos, agentes y automatización' },
 ]
 
 export const neuralNodes = [
@@ -51,7 +51,7 @@ export const skills = [
     label: 'Frontend',
     icon: 'UI',
     accent: false,
-    items: ['Vue.js 3', 'JavaScript', 'TypeScript', 'HTML5', 'CSS3', 'SCSS/SASS', 'Vite'],
+    items: ['Vue.js 3', 'React', 'JavaScript', 'TypeScript', 'HTML5', 'CSS3', 'SCSS/SASS', 'Vite'],
   },
   {
     label: 'Backend',
@@ -69,7 +69,17 @@ export const skills = [
     label: 'Data + ML',
     icon: 'ML',
     accent: true,
+    note: 'Consolidado en el bootcamp de 4Geeks Academy',
     items: ['Python', 'Pandas', 'NumPy', 'Scikit-learn', 'Machine Learning', 'Deep Learning', 'NLP', 'Jupyter'],
+  },
+  {
+    label: 'IA & Automatización',
+    icon: 'IA',
+    accent: false,
+    ai: true,
+    wide: true,
+    note: 'La nueva capa: agentes y procesos que trabajan solos',
+    items: ['Agentes IA', 'RAG', 'MCP', 'n8n', 'Make', 'LLM APIs', 'Automatización de procesos'],
   },
 ]
 
@@ -252,9 +262,9 @@ export const education = [
     school: '4Geeks Academy',
     period: 'Marzo 2026 · Julio 2026',
     type: 'Bootcamp',
-    status: 'current',
+    status: 'completed',
     url: 'https://4geeksacademy.com/en/career-programs/data-science-ml',
-    description: 'Bootcamp intensivo de 18 semanas. Python, ML, Deep Learning, NLP y deploy de modelos.',
+    description: 'Bootcamp intensivo de 18 semanas, completado en julio 2026. Python, ML, Deep Learning, NLP y deploy de modelos.',
   },
   {
     title: 'FullStack Development',
