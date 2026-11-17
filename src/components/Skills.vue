@@ -3,9 +3,9 @@ import { skills } from '../data/portfolio.js'
 </script>
 
 <template>
-  <section id="habilidades" class="skills">
+  <section id="competencias" class="skills">
     <div class="container">
-      <h2 class="section-title">Habilidades</h2>
+      <h2 class="section-title">Competencias</h2>
 
       <div class="skills-grid">
         <div

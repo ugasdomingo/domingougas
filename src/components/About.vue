@@ -1,57 +1,76 @@
 <script setup>
-import { impactMetrics } from '../data/portfolio.js'
+import { personalInfo, aboutParagraphs, highlights, cvFiles } from '../data/portfolio.js'
 </script>
 
 <template>
   <section id="sobre-mi" class="about">
     <div class="container">
-      <h2 class="section-title">Sobre mí</h2>
+      <h2 class="section-title">¿Quién soy?</h2>
 
       <div class="about-grid">
         <div class="about-text">
           <p class="lead">
-            Soy un desarrollador full stack en Madrid que une producto, código y datos.
-            Mi base es MEVN, mi ventaja es haber trabajado más de una década en marketing,
-            y mi nueva capa es la ciencia de datos, los agentes IA y la automatización
-            aplicadas a productos reales.
+            Uno negocio, producto y código para que lo que se construye
+            sea lo que el negocio necesita.
           </p>
 
-          <p>
-            Construyo aplicaciones con Vue, Node, Express y MongoDB, cuidando tanto la arquitectura
-            como la experiencia de usuario. No me quedo en “que funcione”: pienso en métricas,
-            conversión, comunicación y en cómo una decisión técnica afecta al negocio.
-          </p>
-
-          <p>
-            Me gradué del bootcamp de Data Science & Machine Learning de 4Geeks Academy y llevo
-            esa mirada full stack hacia pipelines, modelos predictivos, agentes IA con RAG y MCP,
-            y automatización de procesos con n8n y Make.
-          </p>
+          <p v-for="(paragraph, i) in aboutParagraphs" :key="i">{{ paragraph }}</p>
 
           <div class="about-badges">
-            <span class="tag tag-accent">Madrid, España</span>
+            <span class="tag tag-accent">{{ personalInfo.location }}</span>
             <span class="tag tag-green">Disponible para trabajar</span>
-            <span class="tag tag-default">Full stack + data mindset</span>
+            <span class="tag tag-default">Scrum · Kanban · Jira</span>
           </div>
         </div>
 
-        <div class="about-stats">
-          <div v-for="metric in impactMetrics" :key="metric.label" class="stat-card card">
-            <div class="stat-number">{{ metric.value }}</div>
-            <div class="stat-label">{{ metric.label }}</div>
+        <aside class="profile-card card" aria-label="Información personal">
+          <img :src="personalInfo.photo" :alt="`Foto de ${personalInfo.name}`" class="profile-photo" />
+
+          <dl class="profile-info">
+            <div>
+              <dt>Email</dt>
+              <dd><a :href="`mailto:${personalInfo.email}`">{{ personalInfo.email }}</a></dd>
+            </div>
+            <div>
+              <dt>LinkedIn</dt>
+              <dd>
+                <a :href="personalInfo.linkedin" target="_blank" rel="noopener noreferrer">
+                  linkedin.com/in/ugasdomingo
+                </a>
+              </dd>
+            </div>
+            <div>
+              <dt>GitHub</dt>
+              <dd>
+                <a :href="personalInfo.github" target="_blank" rel="noopener noreferrer">
+                  github.com/ugasdomingo
+                </a>
+              </dd>
+            </div>
+          </dl>
+
+          <div class="cv-downloads">
+            <a
+              v-for="cv in cvFiles"
+              :key="cv.href"
+              :href="cv.href"
+              target="_blank"
+              rel="noopener"
+              :class="['btn', cv.primary ? 'btn-primary' : 'btn-secondary', 'cv-btn']"
+            >
+              <span class="cv-label">{{ cv.label }}</span>
+              <span class="cv-note">{{ cv.note }}</span>
+            </a>
           </div>
-        </div>
+        </aside>
       </div>
 
-      <div class="positioning-card">
-        <div>
-          <span class="positioning-kicker">Perfil diferencial</span>
-          <h3>Marketing + ingeniería + IA aplicada</h3>
+      <div class="highlights-grid">
+        <div v-for="item in highlights" :key="item.title" class="highlight card">
+          <span class="highlight-icon" aria-hidden="true">{{ item.icon }}</span>
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.description }}</p>
         </div>
-        <p>
-          Es una mezcla poco común: entiendo el producto antes de escribir código, desarrollo el
-          sistema completo y sumo la capa de datos e IA para medir, predecir y automatizar.
-        </p>
       </div>
     </div>
   </section>
@@ -60,7 +79,7 @@ import { impactMetrics } from '../data/portfolio.js'
 <style scoped>
 .about-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 390px;
+  grid-template-columns: minmax(0, 1fr) 340px;
   gap: 3rem;
   align-items: start;
 }
@@ -91,87 +110,118 @@ import { impactMetrics } from '../data/portfolio.js'
   margin-top: 0.5rem;
 }
 
-.about-stats {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.85rem;
-}
-
-.stat-card {
-  min-height: 9.2rem;
-  padding: 1.2rem;
+.profile-card {
+  padding: 1.25rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  overflow: hidden;
-  position: relative;
+  gap: 1.1rem;
+  border-color: rgba(45, 212, 191, 0.22);
 }
 
-.stat-card::after {
-  content: '';
-  position: absolute;
-  inset: auto 0 0;
-  height: 3px;
-  background: var(--accent-gradient);
-  opacity: 0.85;
-}
-
-.stat-number {
-  font-size: clamp(1.8rem, 4vw, 2.7rem);
-  font-weight: 900;
-  color: var(--text-primary);
-  line-height: 1;
-}
-
-.stat-label {
-  font-size: 0.8rem;
-  color: var(--text-muted);
-  font-weight: 600;
-  line-height: 1.35;
-}
-
-.positioning-card {
-  margin-top: 2rem;
-  display: grid;
-  grid-template-columns: 0.72fr 1fr;
-  gap: 2rem;
-  padding: 1.5rem;
-  border: 1px solid rgba(45, 212, 191, 0.2);
-  border-radius: 0.85rem;
-  background:
-    linear-gradient(135deg, rgba(45, 212, 191, 0.1), transparent 45%),
-    rgba(255, 255, 255, 0.035);
-}
-
-.positioning-kicker {
+.profile-photo {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 0.6rem;
+  border: 1px solid var(--border);
   display: block;
-  color: var(--accent-3);
-  font-size: 0.74rem;
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.profile-info dt {
+  font-size: 0.68rem;
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+
+.profile-info dd {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  overflow-wrap: anywhere;
+}
+
+.profile-info a:hover {
+  color: var(--accent-3);
+}
+
+.cv-downloads {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.cv-btn {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.3rem;
+  width: 100%;
+}
+
+.cv-label {
+  font-size: 0.92rem;
+}
+
+.cv-note {
+  font-size: 0.74rem;
+  font-weight: 500;
+  opacity: 0.8;
+}
+
+.highlights-grid {
+  margin-top: 2.5rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.highlight {
+  padding: 1.35rem;
+}
+
+.highlight-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 2rem;
+  min-width: 2.7rem;
+  padding: 0 0.55rem;
+  border-radius: 0.55rem;
+  background: rgba(45, 212, 191, 0.12);
+  color: var(--accent-3);
+  font-size: 0.68rem;
+  font-weight: 900;
+  margin-bottom: 0.9rem;
+}
+
+.highlight h3 {
+  font-size: 1.05rem;
+  font-weight: 800;
   margin-bottom: 0.45rem;
 }
 
-.positioning-card h3 {
-  font-size: 1.25rem;
-  line-height: 1.25;
-}
-
-.positioning-card p {
-  color: var(--text-secondary);
-  line-height: 1.75;
+.highlight p {
+  color: var(--text-muted);
+  font-size: 0.88rem;
+  line-height: 1.7;
 }
 
 @media (max-width: 900px) {
-  .about-grid,
-  .positioning-card {
+  .about-grid {
     grid-template-columns: 1fr;
   }
-}
 
-@media (max-width: 520px) {
-  .about-stats {
+  .profile-card {
+    max-width: 420px;
+  }
+
+  .highlights-grid {
     grid-template-columns: 1fr;
   }
 }

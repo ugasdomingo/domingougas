@@ -1,5 +1,7 @@
 <script setup>
-import { personalInfo, impactMetrics, neuralNodes } from '../data/portfolio.js'
+import { personalInfo, impactMetrics, neuralNodes, cvFiles } from '../data/portfolio.js'
+
+const mainCv = cvFiles.find(cv => cv.primary)
 </script>
 
 <template>
@@ -8,7 +10,7 @@ import { personalInfo, impactMetrics, neuralNodes } from '../data/portfolio.js'
       <div class="hero-copy">
         <p class="eyebrow">
           <span class="status-dot" aria-hidden="true"></span>
-          Disponible para proyectos full stack con datos, IA y automatización
+          Disponible para trabajar · {{ personalInfo.location }}
         </p>
 
         <h1 class="hero-name">
@@ -17,31 +19,25 @@ import { personalInfo, impactMetrics, neuralNodes } from '../data/portfolio.js'
         </h1>
 
         <p class="hero-role">
-          Full stack developer graduado en
-          <strong>Data Science & Machine Learning</strong>.
+          <strong>Product Owner</strong> y Analista Funcional con perfil técnico.
         </p>
 
         <p class="hero-description">
-          Construyo productos web con Vue, Node y MongoDB, y sumo Python, modelos
-          predictivos, agentes IA y automatización con n8n y Make para convertir
-          software en decisiones más inteligentes.
+          Convierto problemas de negocio en productos digitales que funcionan y se miden:
+          entiendo al cliente, defino requisitos y prioridades, y como también programo
+          (Vue, Node, SQL, IA), hablo el mismo idioma que el equipo de desarrollo.
         </p>
 
         <div class="hero-cta">
-          <a href="#proyectos" class="btn btn-primary">
-            Ver proyectos
+          <a :href="mainCv.href" target="_blank" rel="noopener" class="btn btn-primary">
+            Ver CV
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
-              <path d="M5 12h14M12 5l7 7-7 7" />
+              <path d="M12 4v12M6 10l6 6 6-6M5 20h14" />
             </svg>
           </a>
 
-          <a
-            :href="personalInfo.github"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn btn-secondary"
-          >
-            GitHub
+          <a href="#experiencia" class="btn btn-secondary">
+            Ver experiencia
           </a>
 
           <a
@@ -55,26 +51,26 @@ import { personalInfo, impactMetrics, neuralNodes } from '../data/portfolio.js'
         </div>
       </div>
 
-      <aside class="hero-lab" aria-label="Resumen visual de habilidades full stack y machine learning">
+      <aside class="hero-lab" aria-label="Resumen visual del perfil: negocio, producto y tecnología">
         <div class="lab-topbar">
           <span></span>
           <span></span>
           <span></span>
-          <p>domingougas.ai</p>
+          <p>domingougas.vercel.app</p>
         </div>
 
         <div class="lab-grid">
           <div class="terminal-panel">
-            <p class="terminal-line muted">$ build_profile --stack MEVN --plus ML+IA</p>
-            <p class="terminal-line"><span>status</span> production ready</p>
+            <p class="terminal-line muted">$ profile --role product-owner --plus dev+data+IA</p>
+            <p class="terminal-line"><span>status</span> disponible para trabajar</p>
             <p class="terminal-line"><span>location</span> {{ personalInfo.location }}</p>
-            <p class="terminal-line"><span>focus</span> web apps + agentes IA + automatización</p>
+            <p class="terminal-line"><span>flow</span> negocio → requisitos → producto → métricas</p>
           </div>
 
           <div class="model-panel">
             <div class="model-header">
-              <span>prediction pipeline</span>
-              <strong>92%</strong>
+              <span>conversión DigiNode</span>
+              <strong>+20%</strong>
             </div>
             <div class="bars" aria-hidden="true">
               <span style="--h: 42%"></span>

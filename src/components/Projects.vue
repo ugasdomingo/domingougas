@@ -10,10 +10,16 @@ onMounted(() => {
 
 const filters = [
   { key: 'all', label: 'Todos' },
-  { key: 'fullstack', label: 'Full stack' },
-  { key: 'client', label: 'Clientes' },
+  { key: 'producto', label: 'Productos' },
+  { key: 'client', label: 'Webs para clientes' },
   { key: 'datascience', label: 'Data Science' },
 ]
+
+const categoryLabel = {
+  producto: 'Producto',
+  client: 'Web corporativa',
+  datascience: 'Data Science',
+}
 
 const activeFilter = ref('all')
 
@@ -31,8 +37,8 @@ const filtered = computed(() =>
 
       <div class="recent-block">
         <div class="recent-intro">
-          <span class="tag tag-accent">Producción reciente</span>
-          <h3>Apps y sitios que ya viven fuera del editor</h3>
+          <span class="tag tag-accent">En producción</span>
+          <h3>Productos con resultados medibles</h3>
         </div>
 
         <div class="recent-grid">
@@ -84,7 +90,7 @@ const filtered = computed(() =>
         >
           <div class="card-header">
             <div>
-              <span class="project-category">{{ project.category }}</span>
+              <span class="project-category">{{ categoryLabel[project.category] }}</span>
               <h3 class="project-name">{{ project.name }}</h3>
             </div>
             <div class="card-links">

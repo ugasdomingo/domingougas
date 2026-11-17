@@ -1,5 +1,5 @@
 <script setup>
-import { bootcampInfo, bootcampCompetencies, education } from '../data/portfolio.js'
+import { bootcampInfo, education } from '../data/portfolio.js'
 </script>
 
 <template>
@@ -21,6 +21,7 @@ import { bootcampInfo, bootcampCompetencies, education } from '../data/portfolio
           <a :href="bootcampInfo.url" target="_blank" rel="noopener noreferrer">
             {{ bootcampInfo.school }}
           </a>
+          <p class="bootcamp-summary">{{ bootcampInfo.summary }}</p>
         </div>
 
         <div class="bootcamp-signal" aria-hidden="true">
@@ -28,24 +29,6 @@ import { bootcampInfo, bootcampCompetencies, education } from '../data/portfolio
           <span style="--w: 82%"></span>
           <span style="--w: 48%"></span>
           <span style="--w: 74%"></span>
-        </div>
-      </div>
-
-      <div class="competencies-block">
-        <div class="block-intro">
-          <h3>La nueva capa del perfil</h3>
-          <p>
-            Competencias adquiridas en análisis, modelos y despliegue para conectar productos web
-            con decisiones basadas en datos.
-          </p>
-        </div>
-
-        <div class="competencies-grid">
-          <div v-for="comp in bootcampCompetencies" :key="comp.title" class="comp-card card">
-            <div class="comp-icon" aria-hidden="true">{{ comp.icon }}</div>
-            <h4>{{ comp.title }}</h4>
-            <p>{{ comp.description }}</p>
-          </div>
         </div>
       </div>
 
@@ -141,6 +124,13 @@ import { bootcampInfo, bootcampCompetencies, education } from '../data/portfolio
 .bootcamp-card a {
   color: var(--accent-3);
   font-weight: 750;
+}
+
+.bootcamp-summary {
+  margin-top: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  max-width: 560px;
 }
 
 .bootcamp-signal {

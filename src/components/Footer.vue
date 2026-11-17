@@ -17,6 +17,9 @@ const year = new Date().getFullYear()
       </p>
 
       <div class="footer-socials">
+        <a :href="`mailto:${personalInfo.email}`" class="social-link">
+          Email
+        </a>
         <a :href="personalInfo.github" target="_blank" rel="noopener noreferrer" class="social-link">
           GitHub
         </a>

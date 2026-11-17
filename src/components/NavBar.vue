@@ -21,19 +21,20 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
 
       <nav class="nav-links" aria-label="Navegación principal">
         <a href="#sobre-mi" class="nav-link">Sobre mí</a>
-        <a href="#habilidades" class="nav-link">Habilidades</a>
+        <a href="#experiencia" class="nav-link">Experiencia</a>
         <a href="#proyectos" class="nav-link">Proyectos</a>
+        <a href="#competencias" class="nav-link">Competencias</a>
         <a href="#formacion" class="nav-link">Formación</a>
       </nav>
 
       <a
-        href="https://github.com/ugasdomingo"
+        href="/cv/Domingo_Ugas_CV.pdf"
         target="_blank"
-        rel="noopener noreferrer"
-        class="btn btn-secondary github-btn"
-        aria-label="Perfil de GitHub de Domingo Ugas"
+        rel="noopener"
+        class="btn btn-primary github-btn"
+        aria-label="Ver el CV de Domingo Ugas en PDF"
       >
-        GitHub
+        Ver CV
       </a>
     </div>
   </header>
