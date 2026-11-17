@@ -1,5 +1,5 @@
 <script setup>
-import { personalInfo, aboutParagraphs, highlights, cvFiles } from '../data/portfolio.js'
+import { personalInfo, aboutLead, aboutParagraphs, aboutBadges, highlights, cvFiles } from '../data/portfolio.js'
 </script>
 
 <template>
@@ -9,17 +9,14 @@ import { personalInfo, aboutParagraphs, highlights, cvFiles } from '../data/port
 
       <div class="about-grid">
         <div class="about-text">
-          <p class="lead">
-            Uno negocio, producto y código para que lo que se construye
-            sea lo que el negocio necesita.
-          </p>
+          <p class="lead">{{ aboutLead }}</p>
 
           <p v-for="(paragraph, i) in aboutParagraphs" :key="i">{{ paragraph }}</p>
 
           <div class="about-badges">
             <span class="tag tag-accent">{{ personalInfo.location }}</span>
             <span class="tag tag-green">Disponible para trabajar</span>
-            <span class="tag tag-default">Scrum · Kanban · Jira</span>
+            <span v-for="badge in aboutBadges" :key="badge" class="tag tag-default">{{ badge }}</span>
           </div>
         </div>
 

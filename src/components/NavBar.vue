@@ -1,5 +1,8 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
+import { cvFiles, skillsTitle } from '../data/portfolio.js'
+
+const mainCv = cvFiles.find(cv => cv.primary)
 
 const scrolled = ref(false)
 
@@ -23,12 +26,12 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
         <a href="#sobre-mi" class="nav-link">Sobre mí</a>
         <a href="#experiencia" class="nav-link">Experiencia</a>
         <a href="#proyectos" class="nav-link">Proyectos</a>
-        <a href="#competencias" class="nav-link">Competencias</a>
+        <a href="#competencias" class="nav-link">{{ skillsTitle }}</a>
         <a href="#formacion" class="nav-link">Formación</a>
       </nav>
 
       <a
-        href="/cv/Domingo_Ugas_CV.pdf"
+        :href="mainCv.href"
         target="_blank"
         rel="noopener"
         class="btn btn-primary github-btn"

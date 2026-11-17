@@ -1,5 +1,5 @@
 <script setup>
-import { personalInfo, impactMetrics, neuralNodes, cvFiles } from '../data/portfolio.js'
+import { personalInfo, impactMetrics, neuralNodes, cvFiles, heroCopy } from '../data/portfolio.js'
 
 const mainCv = cvFiles.find(cv => cv.primary)
 </script>
@@ -19,14 +19,10 @@ const mainCv = cvFiles.find(cv => cv.primary)
         </h1>
 
         <p class="hero-role">
-          <strong>Product Owner</strong> y Analista Funcional con perfil técnico.
+          <strong>{{ heroCopy.roleStrong }}</strong> {{ heroCopy.roleRest }}
         </p>
 
-        <p class="hero-description">
-          Convierto problemas de negocio en productos digitales que funcionan y se miden:
-          entiendo al cliente, defino requisitos y prioridades, y como también programo
-          (Vue, Node, SQL, IA), hablo el mismo idioma que el equipo de desarrollo.
-        </p>
+        <p class="hero-description">{{ heroCopy.description }}</p>
 
         <div class="hero-cta">
           <a :href="mainCv.href" target="_blank" rel="noopener" class="btn btn-primary">
@@ -51,7 +47,7 @@ const mainCv = cvFiles.find(cv => cv.primary)
         </div>
       </div>
 
-      <aside class="hero-lab" aria-label="Resumen visual del perfil: negocio, producto y tecnología">
+      <aside class="hero-lab" aria-label="Resumen visual del perfil">
         <div class="lab-topbar">
           <span></span>
           <span></span>
@@ -61,10 +57,10 @@ const mainCv = cvFiles.find(cv => cv.primary)
 
         <div class="lab-grid">
           <div class="terminal-panel">
-            <p class="terminal-line muted">$ profile --role product-owner --plus dev+data+IA</p>
+            <p class="terminal-line muted">{{ heroCopy.command }}</p>
             <p class="terminal-line"><span>status</span> disponible para trabajar</p>
             <p class="terminal-line"><span>location</span> {{ personalInfo.location }}</p>
-            <p class="terminal-line"><span>flow</span> negocio → requisitos → producto → métricas</p>
+            <p class="terminal-line"><span>{{ heroCopy.focusKey }}</span> {{ heroCopy.focus }}</p>
           </div>
 
           <div class="model-panel">

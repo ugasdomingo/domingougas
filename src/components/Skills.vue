@@ -1,11 +1,11 @@
 <script setup>
-import { skills } from '../data/portfolio.js'
+import { skills, skillsTitle } from '../data/portfolio.js'
 </script>
 
 <template>
   <section id="competencias" class="skills">
     <div class="container">
-      <h2 class="section-title">Competencias</h2>
+      <h2 class="section-title">{{ skillsTitle }}</h2>
 
       <div class="skills-grid">
         <div
